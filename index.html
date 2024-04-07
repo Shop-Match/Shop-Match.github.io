@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .luam {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .box {
+      flex: 1;
+      border: 1px solid black;
+      padding: 10px;
+      margin: 5px;
+      height: 240px;
+      box-sizing: border-box;
+    }
+
+    img {
+      width: 140px;
+      height: 160px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .Dlakha {
+      font-size: 18px;
+      margin-top: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="luam" id="productContainer"></div>
+
+  <script>
+    //
+    const products = [
+      { imageUrl: "https://www.javascriptfreecode.com/files/12-a.webp", price: "$60" },
+      { imageUrl: "https://www.javascriptfreecode.com/files/12-a.webp", price: "$70" },
+      { imageUrl: "https://www.javascriptfreecode.com/files/12-a.webp", price: "$80" },
+      { imageUrl: "https://www.javascriptfreecode.com/files/12-a.webp", price: "$90" },      
+      { imageUrl: "https://www.javascriptfreecode.com/files/12-a.webp", price: "$60" },
+      { imageUrl: "https://www.javascriptfreecode.com/files/12-a.webp", price: "$70" },
+      { imageUrl: "https://www.javascriptfreecode.com/files/12-a.webp", price: "$80" },
+      { imageUrl: "https://www.javascriptfreecode.com/files/12-a.webp", price: "$90" },      
+      { imageUrl: "https://www.javascriptfreecode.com/files/12-a.webp", price: "$60" },
+      { imageUrl: "https://www.javascriptfreecode.com/files/12-a.webp", price: "$70" },
+      { imageUrl: "https://www.javascriptfreecode.com/files/12-a.webp", price: "$80" },
+      { imageUrl: "https://www.javascriptfreecode.com/files/12-a.webp", price: "$90" },
+      //
+    ];
+
+    //
+    function createProductElement(product, index) {
+      const { imageUrl, price } = product;
+
+      const productDiv = document.createElement("div");
+      productDiv.className = "box";
+
+      const linkElement = document.createElement("a");
+      linkElement.href = `http://m.me/100095311580013?text=ຄວາຍ%20and%20${index + 1}`; //
+      linkElement.target = "_blank";
+      productDiv.appendChild(linkElement);
+
+      const imgElement = document.createElement("img");
+      imgElement.src = imageUrl;
+      imgElement.alt = "Product Image";
+      linkElement.appendChild(imgElement);
+
+      const priceElement = document.createElement("div");
+      priceElement.className = "Dlakha";
+      priceElement.innerHTML = `<p class="lakha">ราคา : ${price}</p>`;
+      productDiv.appendChild(priceElement);
+
+      return productDiv;
+    }
+
+    //
+    const productContainer = document.getElementById("productContainer");
+    products.forEach((product, index) => {
+      const productElement = createProductElement(product, index);
+      productContainer.appendChild(productElement);
+    });
+  </script>
+</body>
+
+</html>
+￼Enter
